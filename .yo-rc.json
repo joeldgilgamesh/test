@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.spminfiscaa"
+    },
+    "jhipsterVersion": "6.9.0",
+    "applicationType": "microservice",
+    "baseName": "spminfimscaa",
+    "packageName": "com.spminfiscaa",
+    "packageFolder": "com/spminfiscaa",
+    "serverPort": "2222",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MjU2Njk0ZGI2Mzk0YTFjODAwNjFlZmJjZDkyYzBhOGRiY2VmOGNmZTliMWJjZjdiM2E1YzQ0YzZmNDg2ZWE3NTg0NDViYjVjOTg5ZDdlMjQzYjI4MzJmMTIwOTZjNjJhZjMwYTUzOTliOGZmOGMzMjJjODFhNWMxNzI1YzU0Y2E=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1594132283773,
+    "testFrameworks": ["gatling"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
