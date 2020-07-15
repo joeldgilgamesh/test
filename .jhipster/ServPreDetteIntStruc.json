@@ -1,0 +1,50 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "spminfimscaa",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "organisme",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "categorie",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "groupe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "principale",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "interet",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "Integer",
+      "fieldValidateRules": []
+    },
+    {
+      "fieldName": "echeance",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "changelogDate": "20200708082115",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "serv_pre_dette_int_struc",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no",
+  "microserviceName": "spminfimscaa"
+}

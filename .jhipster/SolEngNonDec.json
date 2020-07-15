@@ -1,0 +1,41 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "spminfimscaa",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "bailleur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type_cooperation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type_fond",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "solde",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "commission",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "changelogDate": "20200708080509",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "sol_eng_non_dec",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no",
+  "microserviceName": "spminfimscaa"
+}

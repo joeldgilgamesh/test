@@ -1,0 +1,33 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "spminfimscaa",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "categorie",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "echeance",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "changelogDate": "20200708082751",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "serv_pre_dette_int_no_struc",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no",
+  "microserviceName": "spminfimscaa"
+}

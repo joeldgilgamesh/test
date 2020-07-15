@@ -1,0 +1,49 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "spminfimscaa",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "bailleur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type_cooperation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type_fond",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "montant_a_rembourser",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "interet",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "echeance",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "changelogDate": "20200708081306",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "serv_pre_dette_ext",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no",
+  "microserviceName": "spminfimscaa"
+}
