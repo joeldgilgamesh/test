@@ -18,7 +18,7 @@ public class CsvSEND {
     //    public static String type = "csv";
     public static String TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
     static String[] HEADERs = {"bailleur", "type_cooperation", "type_fond", "solde", "commission", "date"};
-    static String SHEET = "Service_Engage_Non_Declarer";
+    static String SHEET = "Solde_Engage_Non_Declarer";
 
     public static boolean hasExcelFormat(MultipartFile file) {
         if (!TYPE.equals(file.getContentType())) {
@@ -94,28 +94,20 @@ public class CsvSEND {
                 }
                 if(solEngNonDec.getType_cooperation() != null) {
                     row.createCell(1).setCellValue(solEngNonDec.getType_cooperation().toString());
-
                 }
                 if(solEngNonDec.getType_fond() != null) {
                     row.createCell(2).setCellValue(solEngNonDec.getType_fond().toString());
-
                 }
                 if(solEngNonDec.getSolde() != null) {
                     row.createCell(3).setCellValue(solEngNonDec.getSolde().toString());
-
                 }
 
                 if(solEngNonDec.getCommission() != null) {
                     row.createCell(4).setCellValue(solEngNonDec.getCommission().toString());
-
                 }
                 if(solEngNonDec.getDate() != null) {
-                    row.createCell(5).setCellValue(solEngNonDec.getDate().toString());
-
+                    row.createCell(5).setCellValue(solEngNonDec.getDate().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy")));
                 }
-
-
-
             }
             workbook.write(out);
             return new ByteArrayInputStream(out.toByteArray());
@@ -161,13 +153,13 @@ public class CsvSEND {
                             solEngNonDec.setType_fond(currentCell.getStringCellValue());
                             break;
                         case 3:
-                            solEngNonDec.setSolde(currentCell.getColumnIndex());
+                            solEngNonDec.setSolde((int)currentCell.getNumericCellValue());
                             break;
                         case 4:
                             solEngNonDec.setDate(LocalDate.parse(currentCell.toString(), DateTimeFormatter.ofPattern("dd-MMM-yyyy")));
                             break;
                         case 5:
-                            solEngNonDec.setCommission(currentCell.getColumnIndex());
+                            solEngNonDec.setCommission((int)currentCell.getNumericCellValue());
                             break;
 
                         default:
@@ -175,9 +167,15 @@ public class CsvSEND {
                     }
                     cellIdx++;
                 }
+
+                solEngNonDecs.add(solEngNonDec);
+                System.out.println("####################################################################");
+                System.out.println(solEngNonDecs);
+                System.out.println("####################################################################");
             }
             workbook.close();
             return solEngNonDecs;
+
         } catch (IOException e) {
             throw new RuntimeException("fail to parse Excel file: " + e.getMessage());
         }

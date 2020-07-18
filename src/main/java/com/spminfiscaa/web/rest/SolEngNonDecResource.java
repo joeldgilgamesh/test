@@ -145,7 +145,7 @@ public class SolEngNonDecResource {
 
     @GetMapping("/SEND-download")
     public ResponseEntity<Resource> getFile() {
-        String filename = "Service_Engage_Non_Declarer.xlsx";
+        String filename = "Solde_Engage_Non_Declarer.xlsx";
         InputStreamResource file = new InputStreamResource(solEngNonDecService.load());
 
         return ResponseEntity.ok()

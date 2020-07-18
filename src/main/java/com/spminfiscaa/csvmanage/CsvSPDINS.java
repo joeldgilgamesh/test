@@ -54,11 +54,11 @@ public class CsvSPDINS {
 
                 }
                 if(servPreDetteIntNoStruc.getEcheance() != null) {
-                    row.createCell(2).setCellValue(servPreDetteIntNoStruc.getEcheance().toString());
+                    row.createCell(2).setCellValue(servPreDetteIntNoStruc.getEcheance().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy")));
 
                 }
                 if(servPreDetteIntNoStruc.getDate() != null) {
-                    row.createCell(3).setCellValue(servPreDetteIntNoStruc.getDate().toString());
+                    row.createCell(3).setCellValue(servPreDetteIntNoStruc.getDate().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy")));
 
                 }
 
@@ -104,7 +104,7 @@ public class CsvSPDINS {
                             servPreDetteIntNoStruc.setCategorie(currentCell.getStringCellValue());
                             break;
                         case 1:
-                            servPreDetteIntNoStruc.setTotal(currentCell.getColumnIndex());
+                            servPreDetteIntNoStruc.setTotal((int)currentCell.getNumericCellValue());
                             break;
                         case 2:
                             servPreDetteIntNoStruc.setEcheance(LocalDate.parse(currentCell.toString(), DateTimeFormatter.ofPattern("dd-MMM-yyyy")));
@@ -118,6 +118,7 @@ public class CsvSPDINS {
                     }
                     cellIdx++;
                 }
+                solEngNonDecs.add(servPreDetteIntNoStruc);
             }
             workbook.close();
             return solEngNonDecs;

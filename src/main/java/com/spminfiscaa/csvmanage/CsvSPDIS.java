@@ -66,10 +66,10 @@ public class CsvSPDIS {
                     row.createCell(5).setCellValue(servPreDetteIntStruc.getTotal().toString());
                 }
                 if(servPreDetteIntStruc.getEcheance() != null) {
-                    row.createCell(6).setCellValue(servPreDetteIntStruc.getEcheance().toString());
+                    row.createCell(6).setCellValue(servPreDetteIntStruc.getEcheance().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy")));
                 }
                 if(servPreDetteIntStruc.getDate() != null) {
-                    row.createCell(7).setCellValue(servPreDetteIntStruc.getDate().toString());
+                    row.createCell(7).setCellValue(servPreDetteIntStruc.getDate().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy")));
                 }
 
             }
@@ -86,7 +86,7 @@ public class CsvSPDIS {
             Sheet sheet = workbook.getSheet(SHEET);
             Iterator<Row> rows = sheet.iterator();
 
-            List<ServPreDetteIntStruc> solEngNonDecs = new ArrayList<ServPreDetteIntStruc>();
+            List<ServPreDetteIntStruc> servPreDetteIntStrucs = new ArrayList<ServPreDetteIntStruc>();
 
 
             int rowNumber = 0;
@@ -117,13 +117,13 @@ public class CsvSPDIS {
                             servPreDetteIntStruc.setGroupe(currentCell.getStringCellValue());
                             break;
                         case 3:
-                            servPreDetteIntStruc.setPrincipale(currentCell.getColumnIndex());
+                            servPreDetteIntStruc.setPrincipale((int)currentCell.getNumericCellValue());
                             break;
                         case 4:
-                            servPreDetteIntStruc.setInteret(currentCell.getColumnIndex());
+                            servPreDetteIntStruc.setInteret((int)currentCell.getNumericCellValue());
                             break;
                         case 5:
-                            servPreDetteIntStruc.setTotal(currentCell.getColumnIndex());
+                            servPreDetteIntStruc.setTotal((int)currentCell.getNumericCellValue());
                             break;
                         case 6:
                             servPreDetteIntStruc.setEcheance(LocalDate.parse(currentCell.toString(), DateTimeFormatter.ofPattern("dd-MMM-yyyy")));
@@ -136,9 +136,14 @@ public class CsvSPDIS {
                     }
                     cellIdx++;
                 }
+                servPreDetteIntStrucs.add(servPreDetteIntStruc);
+                System.out.println("####################################################################");
+                System.out.println(servPreDetteIntStrucs);
+                System.out.println("####################################################################");
+
             }
             workbook.close();
-            return solEngNonDecs;
+            return servPreDetteIntStrucs;
         } catch (IOException e) {
             throw new RuntimeException("fail to parse Excel file: " + e.getMessage());
         }
